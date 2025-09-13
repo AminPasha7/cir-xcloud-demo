@@ -1,11 +1,3 @@
-
----
-
-## Drop-in fixed README (balanced fences + image paths)
-
-Paste this version over your file (it has all code fences properly closed and uses the renamed image files):
-
-```markdown
 # CIR X-Cloud Demo
 **Common Intermediate Representation (CIR) for Cross-Cloud Security Translation**
 
@@ -54,108 +46,11 @@ This example demonstrates how a **CIR rule** can be mapped into **AWS Security G
 ---
 
 ## Project Structure
-```
-
 cir-xcloud-demo/
-│── infra/          # Terraform IaC definitions
-│── src/            # Python app source code
-│── scripts/        # Utility & cleanup scripts
-│── images/         # Architecture diagrams & assets
-│── Makefile        # Build automation
-│── README.md       # Project documentation (this file)
-│── .gitignore      # Ignore unnecessary files (Terraform, Python, IDE, OS)
-
-````
-
----
-
-## Setup & Installation
-
-### 1) Clone the repo
-```powershell
-git clone https://github.com/AminPasha7/cir-xcloud-demo.git
-cd cir-xcloud-demo
-````
-
-### 2) Setup Python environment
-
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 3) Setup Terraform
-
-```powershell
-cd infra
-terraform init
-terraform plan
-terraform apply
-```
-
-### 4) Deploy Cloud Run service
-
-```powershell
-gcloud run deploy cir-translator `
-  --source . `
-  --region us-central1 `
-  --platform managed `
-  --allow-unauthenticated
-```
-
-### Usage Example
-
-```powershell
-$body = @'
-{
-  "version":"0.1",
-  "id":"demo-allow-ssh",
-  "mode":"dry-run",
-  "conditions":{"event.type":"demo.trigger"},
-  "action":"allow_ingress",
-  "resources":{"gcp":{"vpc":"default","tag":"cir-demo","cidr":"10.10.0.0/16","port":22}}
-}
-'@
-
-Invoke-WebRequest `
-  -Uri "https://<cloud-run-url>/simulate" `
-  -Method POST `
-  -Body $body `
-  -ContentType "application/json"
-```
-
-**Response**
-
-```json
-{
-  "ok": true,
-  "plan": {
-    "would_create_rule": "cir-demo-allow-ssh-22",
-    "project": null
-  }
-}
-```
-
----
-
-## Testing
-
-Python unit tests (pytest).
-
-Terraform validation:
-
-```bash
-terraform validate
-terraform fmt -check
-```
-
----
-
-## License
-
-This project is licensed under the MIT License.
-Feel free to use, modify, and distribute under the same license.
-
----
-
+│── infra/ # Terraform IaC definitions
+│── src/ # Python app source code
+│── scripts/ # Utility & cleanup scripts
+│── images/ # Architecture diagrams & assets
+│── Makefile # Build automation
+│── README.md # Project documentation (this file)
+│── .gitignore # Ignore unnecessary files (Terraform, Python, IDE, OS)
