@@ -12,7 +12,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ## Architecture
 
-![CIR Project Architecture](images/CIR%20project.png)
+![CIR Project Architecture](images/CIR_project.png)
 
 **Flow:**
 1. Security events are generated in **AWS EC2**.  
@@ -24,9 +24,10 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ## CIR Rule to Cloud-Specific Translation
 
-This example demonstrates how a **CIR rule** can be mapped into **AWS Security Group rules** or **GCP Firewall rules** using translators.  
+This example demonstrates how a **CIR rule** can be mapped into **AWS Security Group rules** or **GCP Firewall rules** using translators.
 
-![CIR Rule Translation](images/cidr%20rule.png)
+![CIR Rule Translation](images/cidr_rule.png)
+
 
 ---
 
