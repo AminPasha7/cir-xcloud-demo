@@ -1,0 +1,15 @@
+{
+  "$id": "https://example.com/cir.schema.json",
+  "type": "object",
+  "required": ["version","id","conditions","action","resources"],
+  "properties": {
+    "version": {"type":"string","enum":["0.1"]},
+    "id": {"type":"string"},
+    "priority": {"type":"string","enum":["low","medium","high"],"default":"low"},
+    "mode": {"type":"string","enum":["enforce","dry-run"],"default":"enforce"},
+    "conditions": {"type":"object"},
+    "action": {"type":"string","enum":["allow_ingress","block_ingress","allow_egress","block_egress","tag_resource"]},
+    "resources": {"type":"object","properties":{"gcp":{"type":"object"},"aws":{"type":"object"}}},
+    "metadata": {"type":"object"}
+  }
+}

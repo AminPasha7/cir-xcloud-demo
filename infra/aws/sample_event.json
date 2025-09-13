@@ -1,0 +1,9 @@
+{
+  "Entries": [
+    {
+      "Source": "cir.demo",
+      "DetailType": "cir.test",
+      "Detail": "{\"version\":\"0.1\",\"id\":\"demo-allow-ssh\",\"mode\":\"enforce\",\"conditions\":{\"event.type\":\"demo.trigger\"},\"action\":\"allow_ingress\",\"resources\":{\"gcp\":{\"vpc\":\"default\",\"tag\":\"cir-demo\",\"cidr\":\"10.10.0.0/16\",\"port\":22}}}"
+    }
+  ]
+}
