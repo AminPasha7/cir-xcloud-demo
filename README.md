@@ -1,4 +1,4 @@
-# CIR X-Cloud Demo 🚀  
+# CIR X-Cloud Demo 
 **Common Intermediate Representation (CIR) for Cross-Cloud Security Translation**
 
 This project implements a **Cross-Cloud Network Translator** that normalizes heterogeneous security directives and events into a **Common Intermediate Representation (CIR)**, and translates them into **target-specific machine-executable actions** across AWS and GCP.  
@@ -7,7 +7,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-## 📌 Architecture
+##  Architecture
 
 ![CIR Project Architecture](images/CIR%20project.png)
 
@@ -19,7 +19,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-## ✨ Features
+##  Features
 - Normalize heterogeneous policies, directives, detections, and events into CIR.  
 - Translate CIR → **Cloud-native enforcement actions** (GCP Firewall, AWS Security Groups, etc.).  
 - **Cross-cloud enforcement** (AWS → GCP, GCP → AWS).  
@@ -28,7 +28,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 - **Languages**: Python, Terraform  
 - **Clouds**: AWS, GCP  
 - **Services**: GCP Cloud Run, GCP Artifact Registry, AWS EC2  
@@ -37,7 +37,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 cir-xcloud-demo/
 │── infra/ # Terraform IaC definitions
 │── src/ # Python app source code
@@ -50,7 +50,7 @@ cir-xcloud-demo/
 
 ---
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 ### 1️⃣ Clone the repo
 ```powershell
