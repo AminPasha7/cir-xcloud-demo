@@ -1,3 +1,6 @@
+
+
+````markdown
 # CIR X-Cloud Demo 
 **Common Intermediate Representation (CIR) for Cross-Cloud Security Translation**
 
@@ -7,7 +10,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-##  Architecture
+## Architecture
 
 ![CIR Project Architecture](images/CIR%20project.png)
 
@@ -19,7 +22,15 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-##  Features
+## CIR Rule to Cloud-Specific Translation
+
+This example demonstrates how a **CIR rule** can be mapped into **AWS Security Group rules** or **GCP Firewall rules** using translators.  
+
+![CIR Rule Translation](images/cidr%20rule.png)
+
+---
+
+## Features
 - Normalize heterogeneous policies, directives, detections, and events into CIR.  
 - Translate CIR → **Cloud-native enforcement actions** (GCP Firewall, AWS Security Groups, etc.).  
 - **Cross-cloud enforcement** (AWS → GCP, GCP → AWS).  
@@ -28,7 +39,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-##  Tech Stack
+## Tech Stack
 - **Languages**: Python, Terraform  
 - **Clouds**: AWS, GCP  
 - **Services**: GCP Cloud Run, GCP Artifact Registry, AWS EC2  
@@ -37,52 +48,56 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 
 ---
 
-##  Project Structure
-cir-xcloud-demo/
-│── infra/ # Terraform IaC definitions
-│── src/ # Python app source code
-│── scripts/ # Utility & cleanup scripts
-│── images/ # Architecture diagrams & assets
-│── Makefile # Build automation
-│── README.md # Project documentation (this file)
-│── .gitignore # Ignore unnecessary files (Terraform, Python, IDE, OS)
-
+## Project Structure
+cir-xcloud-demo/  
+│── infra/ # Terraform IaC definitions  
+│── src/ # Python app source code  
+│── scripts/ # Utility & cleanup scripts  
+│── images/ # Architecture diagrams & assets  
+│── Makefile # Build automation  
+│── README.md # Project documentation (this file)  
+│── .gitignore # Ignore unnecessary files (Terraform, Python, IDE, OS)  
 
 ---
 
-##  Setup & Installation
+## Setup & Installation
 
 ### 1️⃣ Clone the repo
 ```powershell
 git clone https://github.com/AminPasha7/cir-xcloud-demo.git
 cd cir-xcloud-demo
+````
 
+### 2️⃣ Setup Python environment
 
-2️⃣ Setup Python environment
-
+```powershell
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+```
 
+### 3️⃣ Setup Terraform
 
-3️⃣ Setup Terraform
-
+```powershell
 cd infra
 terraform init
 terraform plan
 terraform apply
+```
 
-4️⃣ Deploy Cloud Run service
+### 4️⃣ Deploy Cloud Run service
 
+```powershell
 gcloud run deploy cir-translator `
   --source . `
   --region us-central1 `
   --platform managed `
   --allow-unauthenticated
+```
 
+### ▶️ Usage Example
 
-▶️ Usage Example
-
+```powershell
 $body = @'
 {
   "version":"0.1",
@@ -99,10 +114,11 @@ Invoke-WebRequest `
   -Method POST `
   -Body $body `
   -ContentType "application/json"
+```
 
+**Response:**
 
-Response:
-
+```json
 {
   "ok": true,
   "plan": {
@@ -110,17 +126,27 @@ Response:
     "project": null
   }
 }
+```
 
+---
 
-🧪 Testing
+##  Testing
 
 Unit tests in Python (pytest).
 
 Terraform validation:
+
+```bash
 terraform validate
 terraform fmt -check
+```
 
-📜 License
+---
+
+## 📜 License
 
 This project is licensed under the MIT License.
 Feel free to use, modify, and distribute under the same license.
+
+```
+
