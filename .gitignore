@@ -1,0 +1,99 @@
+﻿# ========================================
+# Python
+# ========================================
+__pycache__/
+*.py[cod]
+*.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.manifest
+*.spec
+pip-wheel-metadata/
+
+# PyInstaller
+*.log
+*.pot
+*.pyc
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+junit.xml
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================================
+# Terraform
+# ========================================
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Plan files
+*.plan
+*.tfplan
+
+# ========================================
+# OS / System files
+# ========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================================
+# Logs
+# ========================================
+*.log
+logs/
+*.out
+*.err
+
+# ========================================
+# Misc
+# ========================================
+# Local secrets / credentials (customize if needed)
+secrets.*
+*.key
+*.pem
+*.p12
+*.crt
+
+# Backup files
+*~
+*.bak
+*.tmp
+*.swp
