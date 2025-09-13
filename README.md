@@ -1,12 +1,17 @@
 
+---
 
-````markdown
-# CIR X-Cloud Demo 
+## Drop-in fixed README (balanced fences + image paths)
+
+Paste this version over your file (it has all code fences properly closed and uses the renamed image files):
+
+```markdown
+# CIR X-Cloud Demo
 **Common Intermediate Representation (CIR) for Cross-Cloud Security Translation**
 
-This project implements a **Cross-Cloud Network Translator** that normalizes heterogeneous security directives and events into a **Common Intermediate Representation (CIR)**, and translates them into **target-specific machine-executable actions** across AWS and GCP.  
+This project implements a **Cross-Cloud Network Translator** that normalizes heterogeneous security directives and events into a **Common Intermediate Representation (CIR)**, and translates them into **target-specific machine-executable actions** across AWS and GCP.
 
-It enables cross-cloud enforcement — for example, ingesting an event in AWS and enforcing it in GCP, or vice versa.  
+It enables cross-cloud enforcement — for example, ingesting an event in AWS and enforcing it in GCP, or vice versa.
 
 ---
 
@@ -18,7 +23,7 @@ It enables cross-cloud enforcement — for example, ingesting an event in AWS an
 1. Security events are generated in **AWS EC2**.  
 2. Events are passed through the **Cross-Cloud Network Translator (CIR engine)**.  
 3. CIR is translated into **GCP Cloud Run services**.  
-4. The Cloud Run service enforces policies, e.g., creating **Firewall Rules**.  
+4. The Cloud Run service enforces policies, e.g., creating **Firewall Rules**.
 
 ---
 
@@ -28,7 +33,6 @@ This example demonstrates how a **CIR rule** can be mapped into **AWS Security G
 
 ![CIR Rule Translation](images/cidr_rule.png)
 
-
 ---
 
 ## Features
@@ -36,7 +40,7 @@ This example demonstrates how a **CIR rule** can be mapped into **AWS Security G
 - Translate CIR → **Cloud-native enforcement actions** (GCP Firewall, AWS Security Groups, etc.).  
 - **Cross-cloud enforcement** (AWS → GCP, GCP → AWS).  
 - Simulation / validation harness for safe testing (`dry-run mode`).  
-- Capability fallback (if a directive is unsupported, generate nearest valid action).  
+- Capability fallback (if a directive is unsupported, generate nearest valid action).
 
 ---
 
@@ -45,31 +49,35 @@ This example demonstrates how a **CIR rule** can be mapped into **AWS Security G
 - **Clouds**: AWS, GCP  
 - **Services**: GCP Cloud Run, GCP Artifact Registry, AWS EC2  
 - **Infrastructure as Code (IaC)**: Terraform  
-- **Artifacts**: JSON  
+- **Artifacts**: JSON
 
 ---
 
 ## Project Structure
-cir-xcloud-demo/  
-│── infra/ # Terraform IaC definitions  
-│── src/ # Python app source code  
-│── scripts/ # Utility & cleanup scripts  
-│── images/ # Architecture diagrams & assets  
-│── Makefile # Build automation  
-│── README.md # Project documentation (this file)  
-│── .gitignore # Ignore unnecessary files (Terraform, Python, IDE, OS)  
+```
+
+cir-xcloud-demo/
+│── infra/          # Terraform IaC definitions
+│── src/            # Python app source code
+│── scripts/        # Utility & cleanup scripts
+│── images/         # Architecture diagrams & assets
+│── Makefile        # Build automation
+│── README.md       # Project documentation (this file)
+│── .gitignore      # Ignore unnecessary files (Terraform, Python, IDE, OS)
+
+````
 
 ---
 
 ## Setup & Installation
 
-### 1️⃣ Clone the repo
+### 1) Clone the repo
 ```powershell
 git clone https://github.com/AminPasha7/cir-xcloud-demo.git
 cd cir-xcloud-demo
 ````
 
-### 2️⃣ Setup Python environment
+### 2) Setup Python environment
 
 ```powershell
 python -m venv .venv
@@ -77,7 +85,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Setup Terraform
+### 3) Setup Terraform
 
 ```powershell
 cd infra
@@ -86,7 +94,7 @@ terraform plan
 terraform apply
 ```
 
-### 4️⃣ Deploy Cloud Run service
+### 4) Deploy Cloud Run service
 
 ```powershell
 gcloud run deploy cir-translator `
@@ -96,7 +104,7 @@ gcloud run deploy cir-translator `
   --allow-unauthenticated
 ```
 
-### ▶️ Usage Example
+### Usage Example
 
 ```powershell
 $body = @'
@@ -117,7 +125,7 @@ Invoke-WebRequest `
   -ContentType "application/json"
 ```
 
-**Response:**
+**Response**
 
 ```json
 {
@@ -131,9 +139,9 @@ Invoke-WebRequest `
 
 ---
 
-##  Testing
+## Testing
 
-Unit tests in Python (pytest).
+Python unit tests (pytest).
 
 Terraform validation:
 
@@ -144,10 +152,10 @@ terraform fmt -check
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.
 Feel free to use, modify, and distribute under the same license.
 
-```
+---
 
